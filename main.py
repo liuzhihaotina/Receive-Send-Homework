@@ -97,7 +97,7 @@ if __name__ == '__main__':
     # 163邮箱免费版每日限流限邮件数量
     # qq邮箱时而意外断开连接，需要等1小时左右恢复
     # 谷歌邮箱或者其他邮箱应该是可以的，也有可能出现什么问题
-    use_choice = 1
+    use_choice = 2
     if use_choice == 1:
         smtp_server = "smtp.163.com"
         smtp_user = "example1@163.com"  # 发送邮件的账号
@@ -118,7 +118,7 @@ if __name__ == '__main__':
     content_pass = f"""
         <html>
             <p>某某同学：</p>
-            <p>  你好，请查收作业批改情况</p>
+            <p style="text-indent:2em;">  你好，请查收作业批改情况</p>
 
  
             <p style="text-align: right">张三</p>
@@ -179,16 +179,20 @@ if __name__ == '__main__':
                path_list = [
                    {"path": f"第{numb}章作业/{stu_num}_{stu_name}{file_type}",
                     "name": f"作业{numb}批改-{stu_name}{file_type}"}]
-           except:
-                   print(f'没有{stu_name}的批改作业')
-                   # 添加没有批改作业的同学名单
-                   nosend_list.append(f'{j}' '-' f'{stu_name}')
-                   continue  # 继续下一位同学的循环，不执行后面的操作
+               try:
+                   for fl in file_list:
+                       sd.set_accessories(fl)  # 添加附件
+               except:
+                       print(f'没有{stu_name}的批改作业')
+                       # 添加没有批改作业的同学名单
+                       nosend_list.append(f'{j}' '-' f'{stu_name}')
+                       g += 1  # 统计发送失败的数量
+                       continue  # 继续下一位同学的循环，不执行后面的操作
 
            try:
                sd.send_email()  # 发送邮件
                # 发送成功，统计次数+1
-               ws.cell(row=i + 2, column=9).value = df['发送次数'].values[i] + 1
+               ws.cell(row=i + 2, column=7).value = df['发送次数'].values[i] + 1
            except:
                g += 1  # 统计发送失败的数量
                # 打印发送失败的同学学号与姓名
