@@ -5,5 +5,5 @@
 视频教程：https://www.bilibili.com/video/BV14At5eLEqt/?spm_id_from=333.999.list.card_archive.click&vd_source=ac665279364aea0e41fc5a277797946c  
 
     1. 新增distribute.py，用于对收集的作业文件进行分文件夹存储--适用于多位助教分配批改任务
-    2. 新增rename.py，用于对收集的作业文件批量重命名--适用于没有腾讯文档VIP，不能自定义命名文件
+    2. 新增rename.py，用于对收集的作业文件批量重命名--适用于没有腾讯文档VIP，不能自定义命名文件的
     
