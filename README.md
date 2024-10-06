@@ -4,6 +4,9 @@
 
 视频教程：https://www.bilibili.com/video/BV14At5eLEqt/?spm_id_from=333.999.list.card_archive.click&vd_source=ac665279364aea0e41fc5a277797946c  
 
-    1. 新增distribute.py，用于对收集的作业文件进行分文件夹存储--适用于多位助教分配批改任务
-    2. 新增rename.py，用于对收集的作业文件批量重命名--适用于没有腾讯文档VIP，不能自定义命名文件的
+    1. search.py用于输出谁(在名单里)没交作业、谁(交作业)没在选课名单里的
+    2. test1.py对收集表导出的表格追加一列“发送次数”，初始全填入为0
+    3. main.py用于批量发送批改后的文件
+    4. 新增distribute.py，用于对收集的作业文件进行分文件夹存储--适用于多位助教分配批改任务
+    5. 新增rename.py，用于对收集的作业文件批量重命名--适用于没有腾讯文档VIP，不能自定义命名文件的
     
